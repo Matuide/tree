@@ -11,7 +11,7 @@ namespace tree
         {
 
 
-            Console.WriteLine("your name is: ");
+            Console.WriteLine("your initials are: ");
             string name = Console.ReadLine();
             Console.WriteLine("subjects:  ");
             string subject = Console.ReadLine();
