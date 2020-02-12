@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace tree
@@ -11,11 +12,10 @@ namespace tree
         {
             root = null;
         }
-        public void Print()
+       public static void print()
         {
 
-            
-        }
+        } 
         public void add(string name,string subjects,string grades)
         {
             Node head = new Node();

@@ -12,5 +12,9 @@ namespace tree
         public string grades;
         public Node left;
         public Node right;
+
+
+        public IEnumerable<Node> Children { get; internal set; }
+        public string Name { get; internal set; }
     }
 }

@@ -13,12 +13,13 @@ namespace tree
 
             Console.WriteLine("your initials are: ");
             string name = Console.ReadLine();
-            Console.WriteLine("subjects:  ");
+            Console.WriteLine("subject:  ");
             string subject = Console.ReadLine();
             Console.WriteLine("grades:  ");
             string grade = Console.ReadLine();
             Tree grades = new Tree();
             grades.add(name, subject, grade);
+            grades.print(grades);
 
         }
     }
