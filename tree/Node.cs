@@ -14,7 +14,6 @@ namespace tree
         public Node right;
 
 
-        public IEnumerable<Node> Children { get; internal set; }
-        public string Name { get; internal set; }
+        
     }
 }

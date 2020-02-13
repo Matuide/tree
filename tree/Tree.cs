@@ -12,47 +12,69 @@ namespace tree
         {
             root = null;
         }
-       public static void print()
+       public void printInOrder()
         {
-
+            InOrder(root);
         } 
-        public void add(string name,string subjects,string grades)
+
+
+        public void InOrder(Node n)
+        {
+            if( n == null ) return;
+            if (n.left!=null) InOrder(n.left);
+            Console.WriteLine(n.name + n.subject + n.grades);
+           if (n.right != null) InOrder(n.right);
+           
+
+        }
+
+
+        public void add(string name, string subjects, string grades)
         {
             Node head = new Node();
+            Node nextnodetovisit = root;
+            Node previousnodevisited = root;
+            bool isLeft = false;
             head.left = null;
             head.right = null;
-            head.name = name;
-            head.subject = subjects;
+            head.name = name +" : ";
+            head.subject = subjects+" : ";
             head.grades = grades;
-            char a = name[0];
-            char c = name[1];
-            if (root ==null)
+
+            if (root == null)
             {
                 root = head;
             }
             else
             {
-                do
+                while (nextnodetovisit != null)
                 {
-                    char b = head.name[0];
-                    char d = head.name[1];
-
-                    bool LeftOrright = LeftOrRight(a, b,c,d);
-
-                    if (LeftOrright) 
+                    if (name.CompareTo(nextnodetovisit.name) < 0)
                     {
-                        head = head.left;
+                        previousnodevisited = nextnodetovisit;
+                        nextnodetovisit = nextnodetovisit.left;
+                        isLeft = true;
+                    }
+                    else if (name.CompareTo(nextnodetovisit.name) > 0)
+                    {
+                        previousnodevisited = nextnodetovisit;
+                        nextnodetovisit = nextnodetovisit.right;
+                        isLeft = false;
                     }
                     else
                     {
-                        head = head.right;
+                        return;
                     }
-                    
-                    
-                } while(head != null);
+                }
+                if (isLeft == true)
+                {
+                    previousnodevisited.left = head;
+                }
+                else
+                {
+                    previousnodevisited.right = head;
+                }
             }
-              
-            Console.WriteLine("Adding " + name + "'s grade");
         }
         public bool LeftOrRight(char a , char b , char c ,char d)
         {

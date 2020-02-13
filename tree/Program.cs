@@ -9,17 +9,26 @@ namespace tree
 
         static void Main(string[] args)
         {
-
-
-            Console.WriteLine("your initials are: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("subject:  ");
-            string subject = Console.ReadLine();
-            Console.WriteLine("grades:  ");
-            string grade = Console.ReadLine();
             Tree grades = new Tree();
-            grades.add(name, subject, grade);
-            grades.print(grades);
+            bool Continue = true;
+            do
+            {
+                Console.WriteLine("your initials are: ");
+                string name = Console.ReadLine();
+                Console.WriteLine("subject:  ");
+                string subject = Console.ReadLine();
+                Console.WriteLine("grades:  ");
+                string grade = Console.ReadLine();
+                
+                grades.add(name, subject, grade);
+                Console.WriteLine("add more? ");
+                string a = Console.ReadLine();
+                if (a.ToLower() == "yes") Continue = true;
+                else Continue = false;
+            } while (Continue);
+           
+
+            grades.printInOrder();
 
         }
     }
